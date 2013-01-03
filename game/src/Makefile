@@ -64,8 +64,8 @@ am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_simplegame_OBJECTS = Main.$(OBJEXT) GameAsset.$(OBJEXT) \
 	Md2Asset.$(OBJEXT) TriangularPyramidAsset.$(OBJEXT) \
-	BallisticInterpolator.$(OBJEXT) Camera.$(OBJEXT) \
-	BoundingBox.$(OBJEXT)
+	CubeAsset.$(OBJEXT) BallisticInterpolator.$(OBJEXT) \
+	Camera.$(OBJEXT) BoundingBox.$(OBJEXT)
 simplegame_OBJECTS = $(am_simplegame_OBJECTS)
 simplegame_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I. -I$(top_builddir)
@@ -87,11 +87,11 @@ am__can_run_installinfo = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/gb172/workspace/ci224-lecture4/game/missing --run aclocal-1.11
+ACLOCAL = ${SHELL} /home/gb172/workspace/secret-octo-ironman/game/missing --run aclocal-1.11
 AMTAR = $${TAR-tar}
-AUTOCONF = ${SHELL} /home/gb172/workspace/ci224-lecture4/game/missing --run autoconf
-AUTOHEADER = ${SHELL} /home/gb172/workspace/ci224-lecture4/game/missing --run autoheader
-AUTOMAKE = ${SHELL} /home/gb172/workspace/ci224-lecture4/game/missing --run automake-1.11
+AUTOCONF = ${SHELL} /home/gb172/workspace/secret-octo-ironman/game/missing --run autoconf
+AUTOHEADER = ${SHELL} /home/gb172/workspace/secret-octo-ironman/game/missing --run autoheader
+AUTOMAKE = ${SHELL} /home/gb172/workspace/secret-octo-ironman/game/missing --run automake-1.11
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -119,7 +119,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS =  $(gl_LIBS) $(glew_LIBS) $(sdl_LIBS)
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /home/gb172/workspace/ci224-lecture4/game/missing --run makeinfo
+MAKEINFO = ${SHELL} /home/gb172/workspace/secret-octo-ironman/game/missing --run makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
 PACKAGE = simplegame
@@ -137,10 +137,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = 
 VERSION = 0.1
-abs_builddir = /home/gb172/workspace/ci224-lecture4/game/src
-abs_srcdir = /home/gb172/workspace/ci224-lecture4/game/src
-abs_top_builddir = /home/gb172/workspace/ci224-lecture4/game
-abs_top_srcdir = /home/gb172/workspace/ci224-lecture4/game
+abs_builddir = /home/gb172/workspace/secret-octo-ironman/game/src
+abs_srcdir = /home/gb172/workspace/secret-octo-ironman/game/src
+abs_top_builddir = /home/gb172/workspace/secret-octo-ironman/game
+abs_top_srcdir = /home/gb172/workspace/secret-octo-ironman/game
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -164,7 +164,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/gb172/workspace/ci224-lecture4/game/install-sh
+install_sh = ${SHELL} /home/gb172/workspace/secret-octo-ironman/game/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -186,7 +186,7 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-simplegame_SOURCES = Main.cpp GameAsset.cpp Md2Asset.cpp TriangularPyramidAsset.cpp BallisticInterpolator.cpp Camera.cpp BoundingBox.cpp
+simplegame_SOURCES = Main.cpp GameAsset.cpp Md2Asset.cpp TriangularPyramidAsset.cpp CubeAsset.cpp BallisticInterpolator.cpp Camera.cpp BoundingBox.cpp
 AM_CPPFLAGS = -I../include/ -std=c++0x $(gl_CFLAGS) $(glew_CFLAGS) \
 	$(sdl_CFLAGS)
 all: all-am
@@ -276,6 +276,7 @@ distclean-compile:
 include ./$(DEPDIR)/BallisticInterpolator.Po
 include ./$(DEPDIR)/BoundingBox.Po
 include ./$(DEPDIR)/Camera.Po
+include ./$(DEPDIR)/CubeAsset.Po
 include ./$(DEPDIR)/GameAsset.Po
 include ./$(DEPDIR)/Main.Po
 include ./$(DEPDIR)/Md2Asset.Po

@@ -3,6 +3,7 @@
 	<name>game</name>
 	<comment></comment>
 	<projects>
+		<project>game</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

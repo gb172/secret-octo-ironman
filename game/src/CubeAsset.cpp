@@ -14,41 +14,43 @@ CubeAsset::CubeAsset(float x, float y, float z) {
   this->pos = shared_ptr<Point3>(new Point3(x, y, z));
   // A default "unit" triangular pyramid
   num_vertices = 8;
-  num_triangles = 6;
-  g_vertex_buffer_data = new GLfloat[num_vertices * 3]; // three points per vertex
-  g_element_buffer_data = new GLushort[num_triangles * 4]; // three vertices per triangle
+  num_triangles = 12;
+  g_vertex_buffer_data = new GLfloat[num_vertices * 3] { // three points per vertex
 
-  g_vertex_buffer_data[0] = -0.5;
-  g_vertex_buffer_data[1] = -0.5;
-  g_vertex_buffer_data[2] = 0.5;
+  0.0, 0.0, 0.0,
+  1.0, 0.0, 0.0,
+  0.0, 1.0, 0.0,
+  1.0, 1.0, 0.0,
 
-  g_vertex_buffer_data[3] = 0.5;
-  g_vertex_buffer_data[4] = -0.5;
-  g_vertex_buffer_data[5] = 0.5;
+  0.0, 0.0, 1.0,
+  1.0, 0.0, 1.0,
+  0.0, 1.0, 1.0,
+  1.0, 1.0, 1.0  };
 
-  g_vertex_buffer_data[6] = 0.0;
-  g_vertex_buffer_data[7] = -0.5;
-  g_vertex_buffer_data[8] = -0.5;
 
-  g_vertex_buffer_data[9] = 0.0;
-  g_vertex_buffer_data[10] = 0.5;
-  g_vertex_buffer_data[11] = 0.0;
+  g_element_buffer_data = new GLushort[num_triangles * 3] { // three vertices per triangle
 
-  g_element_buffer_data[0] = 0;
-  g_element_buffer_data[1] = 1;
-  g_element_buffer_data[2] = 3;
+  0, 1, 2,
+  2, 1, 3,
 
-  g_element_buffer_data[3] = 1;
-  g_element_buffer_data[4] = 2;
-  g_element_buffer_data[5] = 3;
+  5, 4, 6,
+  7, 5, 6,
 
-  g_element_buffer_data[6] = 2;
-  g_element_buffer_data[7] = 0;
-  g_element_buffer_data[8] = 3;
+  3, 1, 5,
+  3, 5, 7,
 
-  g_element_buffer_data[9] = 2;
-  g_element_buffer_data[10] = 0;
-  g_element_buffer_data[11] = 1;
+  4, 0, 2,
+  6, 4, 2,
+
+  2, 3, 6,
+  6, 3, 7,
+
+  1, 0, 4,
+  5, 1, 4
+  };
+
+
+
 
   mv_matrix = mv_matrix.translation( Vector3(x, y, z));
   bbox.reset();

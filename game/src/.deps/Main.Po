@@ -150,7 +150,7 @@ Main.o: Main.cpp /usr/include/GL/glew.h \
  ../include/vectormath/scalar/cpp/quat_aos.h \
  ../include/vectormath/scalar/cpp/mat_aos.h Camera.h BoundingBox.h \
  Md2Asset.h TriangularPyramidAsset.h IInterpolator.h \
- BallisticInterpolator.h
+ BallisticInterpolator.h CubeAsset.h
 
 /usr/include/GL/glew.h:
 
@@ -561,3 +561,5 @@ TriangularPyramidAsset.h:
 IInterpolator.h:
 
 BallisticInterpolator.h:
+
+CubeAsset.h:

@@ -94,7 +94,7 @@ int main(int argc, char ** argv) {
 	  return 1;
 	}
 
-	shared_ptr<GameAsset> p = shared_ptr<GameAsset> (new TriangularPyramidAsset(0, 0, 3));
+	shared_ptr<GameAsset> p = shared_ptr<GameAsset> (new CubeAsset(0, 0, 3));
 	assets.push_back(p);
 
 	// Call the function "display" every delay milliseconds

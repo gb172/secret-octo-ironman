@@ -1,5 +1,4 @@
-TriangularPyramidAsset.o: TriangularPyramidAsset.cpp \
- TriangularPyramidAsset.h GameAsset.h /usr/include/GL/glew.h \
+CubeAsset.o: CubeAsset.cpp CubeAsset.h GameAsset.h /usr/include/GL/glew.h \
  /usr/lib/gcc/x86_64-redhat-linux/4.7.2/include/stddef.h \
  /usr/lib/gcc/x86_64-redhat-linux/4.7.2/include/stdint.h \
  /usr/include/stdint.h /usr/include/features.h /usr/include/sys/cdefs.h \
@@ -135,7 +134,7 @@ TriangularPyramidAsset.o: TriangularPyramidAsset.cpp \
  ../include/vectormath/scalar/cpp/mat_aos.h Camera.h BoundingBox.h \
  IInterpolator.h
 
-TriangularPyramidAsset.h:
+CubeAsset.h:
 
 GameAsset.h:
 
