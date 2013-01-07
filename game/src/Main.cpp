@@ -13,6 +13,8 @@
 #include "BallisticInterpolator.h"
 #include "Camera.h"
 #include "CubeAsset.h"
+#include "EnvironmentAsset.h"
+
 
 using namespace std;
 
@@ -95,8 +97,10 @@ int main(int argc, char ** argv) {
 	}
 
 	shared_ptr<GameAsset> p = shared_ptr<GameAsset> (new CubeAsset(0, 0, 3));
-	assets.push_back(p);
+	shared_ptr<GameAsset> j = shared_ptr<GameAsset> (new EnvironmentAsset(0, -1, 3));
 
+	assets.push_back(p);
+	assets.push_back(j);
 	// Call the function "display" every delay milliseconds
 	SDL_AddTimer(delay, display, NULL);
 
@@ -127,7 +131,14 @@ int main(int argc, char ** argv) {
 			    break;
 			  case SDLK_DOWN:
 			    Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, 0.0, 1.0)) );
+
 			    break;
+			  case SDLK_LCTRL:
+			   Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, 0.2, 0.0)) );
+			   break;
+			  case SDLK_LSHIFT:
+			  	Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, -0.2, 0.0)) );
+			  	break;
 			  default:
 			    break;
 			  }

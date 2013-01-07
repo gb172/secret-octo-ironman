@@ -62,10 +62,11 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_simplegame_OBJECTS = Main.$(OBJEXT) GameAsset.$(OBJEXT) \
-	Md2Asset.$(OBJEXT) TriangularPyramidAsset.$(OBJEXT) \
-	CubeAsset.$(OBJEXT) BallisticInterpolator.$(OBJEXT) \
-	Camera.$(OBJEXT) BoundingBox.$(OBJEXT)
+am_simplegame_OBJECTS = Main.$(OBJEXT) EnvironmentAsset.$(OBJEXT) \
+	GameAsset.$(OBJEXT) Md2Asset.$(OBJEXT) \
+	TriangularPyramidAsset.$(OBJEXT) CubeAsset.$(OBJEXT) \
+	BallisticInterpolator.$(OBJEXT) Camera.$(OBJEXT) \
+	BoundingBox.$(OBJEXT)
 simplegame_OBJECTS = $(am_simplegame_OBJECTS)
 simplegame_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I. -I$(top_builddir)
@@ -186,7 +187,7 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-simplegame_SOURCES = Main.cpp GameAsset.cpp Md2Asset.cpp TriangularPyramidAsset.cpp CubeAsset.cpp BallisticInterpolator.cpp Camera.cpp BoundingBox.cpp
+simplegame_SOURCES = Main.cpp EnvironmentAsset.cpp GameAsset.cpp Md2Asset.cpp TriangularPyramidAsset.cpp CubeAsset.cpp BallisticInterpolator.cpp Camera.cpp BoundingBox.cpp
 AM_CPPFLAGS = -I../include/ -std=c++0x $(gl_CFLAGS) $(glew_CFLAGS) \
 	$(sdl_CFLAGS)
 all: all-am
@@ -277,6 +278,7 @@ include ./$(DEPDIR)/BallisticInterpolator.Po
 include ./$(DEPDIR)/BoundingBox.Po
 include ./$(DEPDIR)/Camera.Po
 include ./$(DEPDIR)/CubeAsset.Po
+include ./$(DEPDIR)/EnvironmentAsset.Po
 include ./$(DEPDIR)/GameAsset.Po
 include ./$(DEPDIR)/Main.Po
 include ./$(DEPDIR)/Md2Asset.Po
