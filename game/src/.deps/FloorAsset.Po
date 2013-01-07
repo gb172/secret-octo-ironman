@@ -1,4 +1,4 @@
-Environment.o: Environment.cpp Environment.h GameAsset.h \
+FloorAsset.o: FloorAsset.cpp FloorAsset.h GameAsset.h \
  /usr/include/GL/glew.h \
  /usr/lib/gcc/x86_64-redhat-linux/4.7.2/include/stddef.h \
  /usr/lib/gcc/x86_64-redhat-linux/4.7.2/include/stdint.h \
@@ -135,7 +135,7 @@ Environment.o: Environment.cpp Environment.h GameAsset.h \
  ../include/vectormath/scalar/cpp/mat_aos.h Camera.h BoundingBox.h \
  IInterpolator.h
 
-Environment.h:
+FloorAsset.h:
 
 GameAsset.h:
 

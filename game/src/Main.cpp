@@ -14,6 +14,7 @@
 #include "Camera.h"
 #include "CubeAsset.h"
 #include "EnvironmentAsset.h"
+#include "FloorAsset.h"
 
 
 using namespace std;
@@ -41,7 +42,7 @@ Uint32 display(Uint32 interval, void *param) {
 
 void display() {
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-  glClear(GL_COLOR_BUFFER_BIT);
+  glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
   // This O(n + n^2 + n) sequence of loops is written for clarity,
   // not efficiency
@@ -95,14 +96,16 @@ int main(int argc, char ** argv) {
 	  cerr<< "OpenGL 2.0 not available" << endl;
 	  return 1;
 	}
-
 	glEnable(GL_DEPTH_TEST);
+
 
 	shared_ptr<GameAsset> p = shared_ptr<GameAsset> (new CubeAsset(5, 5, 5));
 	shared_ptr<GameAsset> j = shared_ptr<GameAsset> (new EnvironmentAsset(0, 0, 0));
+	shared_ptr<GameAsset> f = shared_ptr<GameAsset> (new FloorAsset(0, 0, 0));
 
 	assets.push_back(p);
 	assets.push_back(j);
+	assets.push_back(f);
 	// Call the function "display" every delay milliseconds
 	SDL_AddTimer(delay, display, NULL);
 

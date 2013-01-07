@@ -20,7 +20,7 @@ EnvironmentAsset::EnvironmentAsset(float x, float y, float z) {
   this->pos = shared_ptr<Point3>(new Point3(x, y, z));
   // A default "unit" triangular pyramid
   num_vertices = 10;
-  num_triangles = 12;
+  num_triangles = 10;
   g_vertex_buffer_data = new GLfloat[num_vertices * 3] { // three points per vertex
 
 // (x,y,z)
@@ -44,8 +44,7 @@ EnvironmentAsset::EnvironmentAsset(float x, float y, float z) {
 
   g_element_buffer_data = new GLushort[num_triangles * 3] { // three vertices per triangle
 
-  0, 1, 3,		//PLANE
-  1, 2, 3,
+
 
   0, 4, 5,		//WALL 1
   0, 1, 5,
