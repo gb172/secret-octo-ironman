@@ -96,8 +96,10 @@ int main(int argc, char ** argv) {
 	  return 1;
 	}
 
-	shared_ptr<GameAsset> p = shared_ptr<GameAsset> (new CubeAsset(0, 0, 3));
-	shared_ptr<GameAsset> j = shared_ptr<GameAsset> (new EnvironmentAsset(0, -1, 3));
+	glEnable(GL_DEPTH_TEST);
+
+	shared_ptr<GameAsset> p = shared_ptr<GameAsset> (new CubeAsset(5, 5, 5));
+	shared_ptr<GameAsset> j = shared_ptr<GameAsset> (new EnvironmentAsset(0, 0, 0));
 
 	assets.push_back(p);
 	assets.push_back(j);

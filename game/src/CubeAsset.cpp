@@ -1,15 +1,17 @@
 #include "CubeAsset.h"
 
 CubeAsset::CubeAsset()
-  : GameAsset(
-	      string("shaders/hello-gl.v.glsl")
-	      , string("shaders/hello-gl.f.glsl")
-	      )
+
 {
   CubeAsset(0, 0, 0);
 }
 
-CubeAsset::CubeAsset(float x, float y, float z) {
+CubeAsset::CubeAsset(float x, float y, float z)   :
+
+			GameAsset(
+	      string("shaders/hello-gl.v.glsl")
+	      , string("shaders/player.f.glsl")
+	      ){
   this->li = nullptr;
   this->pos = shared_ptr<Point3>(new Point3(x, y, z));
   // A default "unit" triangular pyramid
