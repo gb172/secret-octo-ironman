@@ -62,7 +62,8 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_simplegame_OBJECTS = Main.$(OBJEXT) FloorAsset.$(OBJEXT) \
+am_simplegame_OBJECTS = Main.$(OBJEXT) CollectAsset.$(OBJEXT) \
+	EnemyAsset.$(OBJEXT) FloorAsset.$(OBJEXT) \
 	EnvironmentAsset.$(OBJEXT) GameAsset.$(OBJEXT) \
 	Md2Asset.$(OBJEXT) TriangularPyramidAsset.$(OBJEXT) \
 	CubeAsset.$(OBJEXT) BallisticInterpolator.$(OBJEXT) \
@@ -187,7 +188,7 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-simplegame_SOURCES = Main.cpp FloorAsset.cpp EnvironmentAsset.cpp GameAsset.cpp Md2Asset.cpp TriangularPyramidAsset.cpp CubeAsset.cpp BallisticInterpolator.cpp Camera.cpp BoundingBox.cpp
+simplegame_SOURCES = Main.cpp CollectAsset.cpp EnemyAsset.cpp FloorAsset.cpp EnvironmentAsset.cpp GameAsset.cpp Md2Asset.cpp TriangularPyramidAsset.cpp CubeAsset.cpp BallisticInterpolator.cpp Camera.cpp BoundingBox.cpp
 AM_CPPFLAGS = -I../include/ -std=c++0x $(gl_CFLAGS) $(glew_CFLAGS) \
 	$(sdl_CFLAGS)
 all: all-am
@@ -277,7 +278,9 @@ distclean-compile:
 include ./$(DEPDIR)/BallisticInterpolator.Po
 include ./$(DEPDIR)/BoundingBox.Po
 include ./$(DEPDIR)/Camera.Po
+include ./$(DEPDIR)/CollectAsset.Po
 include ./$(DEPDIR)/CubeAsset.Po
+include ./$(DEPDIR)/EnemyAsset.Po
 include ./$(DEPDIR)/EnvironmentAsset.Po
 include ./$(DEPDIR)/FloorAsset.Po
 include ./$(DEPDIR)/GameAsset.Po

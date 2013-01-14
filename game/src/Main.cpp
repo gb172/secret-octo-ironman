@@ -15,6 +15,8 @@
 #include "CubeAsset.h"
 #include "EnvironmentAsset.h"
 #include "FloorAsset.h"
+#include "EnemyAsset.h"
+#include "CollectAsset.h"
 
 
 using namespace std;
@@ -23,6 +25,9 @@ using namespace std;
 
 string filename = "data/ogre.md2";
 vector<shared_ptr<GameAsset> > assets;
+vector<shared_ptr<CubeAsset> > player;
+vector<shared_ptr<EnemyAsset> > enemy;
+vector<shared_ptr<CollectAsset> > collect;
 
 /*
  * SDL timers run in separate threads.  In the timer thread
@@ -50,8 +55,20 @@ void display() {
     it->update();
   }
 
+  for(auto it : player) {			//player update
+      it->update();
+    }
+
+  for(auto it : enemy) {			//enemy update
+       it->update();
+      }
+
+  for(auto it : collect) {			//collect update
+        it->update();
+      }
+
   for(auto i : assets) {
-    for(auto j : assets) {
+    for(auto j : player) {
       if((i != j) && i->collidesWith(*j)) {
 	cout << "We have a collision"  << endl;
       }
@@ -62,6 +79,18 @@ void display() {
     it->draw();
   }
   
+  for(auto it : player) {			//player draw
+      it->draw();
+    }
+
+  for(auto it : enemy) {			//enemy draw
+        it->draw();
+     }
+
+ for(auto it : collect) {			//collect draw
+        it->draw();
+      }
+
   // Don't forget to swap the buffers
   SDL_GL_SwapBuffers();
 }
@@ -99,13 +128,18 @@ int main(int argc, char ** argv) {
 	glEnable(GL_DEPTH_TEST);
 
 
-	shared_ptr<GameAsset> p = shared_ptr<GameAsset> (new CubeAsset(5, 5, 5));
+	shared_ptr<CubeAsset> p = shared_ptr<CubeAsset> (new CubeAsset(5, 5, 5));
 	shared_ptr<GameAsset> j = shared_ptr<GameAsset> (new EnvironmentAsset(0, 0, 0));
 	shared_ptr<GameAsset> f = shared_ptr<GameAsset> (new FloorAsset(0, 0, 0));
+	shared_ptr<EnemyAsset> e = shared_ptr<EnemyAsset>(new EnemyAsset(2,2,2));
+	shared_ptr<CollectAsset> c = shared_ptr<CollectAsset>(new CollectAsset(1,2,9));
 
-	assets.push_back(p);
+	player.push_back(p);
 	assets.push_back(j);
 	assets.push_back(f);
+	enemy.push_back(e);
+	collect.push_back(c);
+
 	// Call the function "display" every delay milliseconds
 	SDL_AddTimer(delay, display, NULL);
 
