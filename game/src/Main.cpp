@@ -144,8 +144,12 @@ int main(int argc, char ** argv) {
 	SDL_AddTimer(delay, display, NULL);
 
 	// Add the main event loop
+
+	bool cameramode = false;
+
 	SDL_Event event;
 	while (SDL_WaitEvent(&event)) {
+
 			switch (event.type) {
 			case SDL_QUIT:
 			  SDL_Quit();
@@ -153,31 +157,64 @@ int main(int argc, char ** argv) {
 			case SDL_USEREVENT:
 				display();
 				break;
+
 			case SDL_KEYUP:
 			  Camera::getInstance().setCamera(Matrix4::identity());
 			  break;
 			case SDL_KEYDOWN:
 			  Matrix4 camera = Camera::getInstance().getCameraM();
 			  switch(event.key.keysym.sym){
-			  case SDLK_LEFT:
-			    Camera::getInstance().setCamera((camera * Matrix4::rotationY(5.0/180.0)));
-			    break;
-			  case SDLK_RIGHT:
-			    Camera::getInstance().setCamera(camera * Matrix4::rotationY(-5.0/180.0) );
-			    break;
-			  case SDLK_UP:
-			    Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, 0.0, -1.0)) );
-			    break;
-			  case SDLK_DOWN:
-			    Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, 0.0, 1.0)) );
 
+			case SDLK_c:
+				if(cameramode == false){
+					cameramode = true;
+					cout << "Camera on"<< endl;
+				} else {
+					cameramode = false;
+					cout << "Camera off"<< endl;
+					}
+				break;
+
+			  case SDLK_LEFT:
+				  if(cameramode == true){
+			    Camera::getInstance().setCamera((camera * Matrix4::rotationY(5.0/180.0)));}
 			    break;
+
+			  case SDLK_RIGHT:
+				  if(cameramode == true){
+			    Camera::getInstance().setCamera(camera * Matrix4::rotationY(-5.0/180.0) );}
+			    break;
+
+			  case SDLK_UP:
+				  if(cameramode == true){
+			    Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, 0.0, -1.0)) );}
+			    break;
+
+			  case SDLK_DOWN:
+				  if(cameramode == true){
+			    Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, 0.0, 1.0)) );}
+			    break;
+
 			  case SDLK_LCTRL:
-			   Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, 0.2, 0.0)) );
+				  if(cameramode == true){
+			   Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, 0.2, 0.0)) );}
 			   break;
+
 			  case SDLK_LSHIFT:
-			  	Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, -0.2, 0.0)) );
+				  if(cameramode == true){
+			  	Camera::getInstance().setCamera(camera * Matrix4::translation(Vector3(0.0, -0.2, 0.0)) );}
 			  	break;
+
+			  case SDLK_RCTRL:
+				  if(cameramode == true){
+			   Camera::getInstance().setCamera(camera * Matrix4::rotationX(5.0/180.0) );}
+			   break;
+
+			  case SDLK_RSHIFT:
+				  if(cameramode == true){
+			  	Camera::getInstance().setCamera(camera * Matrix4::rotationX(-5.0/180.0) );}
+			  	break;
+
 			  default:
 			    break;
 			  }
