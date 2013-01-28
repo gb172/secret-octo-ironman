@@ -1,0 +1,32 @@
+##################################################CI224 GAMES DEVELOPMENT ASSIGNMENT#############################################
+
+Students:
+	George Bacon	11821294
+	Matej Nevara	10818271
+
+How to run:
+	1. To run the assignment build the entire 'Secret-octo-ironman' workspace
+	2. Run simplegame.
+
+To build:
+	1. To build: Enter the directory of the project. $ ./configure 	$ make $ make install
+
+Aim of the game:
+	The aim of our game is to collect coin cubes with the player cube. The player starts with 15 health.
+	If the player collides with the environment or an enemy cube, 1 health is lost. The game is over when all health is lost.
+
+Controls:
+	LSHIFT      : 	move forward 1 space
+	LCTRL       : 	move backward 1 space
+	LEFT ARROW  :	move left 1 space
+	RIGHT ARROW :	move right 1 space
+	UP ARROW    :	move up 1 space
+	DOWN ARROW  :	move down 1 space
+
+Known Bugs:
+	The cube 'collides' with air near the middle of the game space causing the cube to lose all 15health instantanouesly, 
+	thus ending the game.
+
+Future Changes:
+	Fix 'air collision' and fix proper collisions with the collect asset. Have an enemy cube move around game space to 
+	increase difficulty.
