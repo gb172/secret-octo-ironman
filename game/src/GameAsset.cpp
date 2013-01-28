@@ -1,10 +1,3 @@
-/*
- * GameObject.cpp
- *
- *  Created on: 03-Mar-2009
- *      Author: balor
- */
-
 #include "GameAsset.h"
 
 void GameAsset::common_init() {
@@ -25,7 +18,7 @@ GameAsset::GameAsset(const string & v_shader, const string & f_shader) {
 }
 
 GameAsset::~GameAsset() {
-	// TODO Auto-generated destructor stub
+// TODO Auto-generated destructor stub
 }
 
 bool GameAsset::collidesWith(GameAsset & a ) {
@@ -48,49 +41,49 @@ void GameAsset::draw() {
 
   glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
   glVertexAttribPointer(
-			position_attrib,                  /* attribute */
-			3,                                /* size */
-			GL_FLOAT,                         /* type */
-			GL_FALSE,                         /* normalized? */
-			0,                                /* stride */
-			(void*)0                          /* array buffer offset */
-			);
+position_attrib, /* attribute */
+3, /* size */
+GL_FLOAT, /* type */
+GL_FALSE, /* normalized? */
+0, /* stride */
+(void*)0 /* array buffer offset */
+);
   glEnableVertexAttribArray(position_attrib);
   
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, element_buffer);
   glDrawElements(
-		 GL_TRIANGLES,
-		 3 * this->num_triangles,
-		 GL_UNSIGNED_SHORT,
-		 (GLvoid*) 0
-		 );
+GL_TRIANGLES,
+3 * this->num_triangles,
+GL_UNSIGNED_SHORT,
+(GLvoid*) 0
+);
   
   glDisableVertexAttribArray(position_attrib);
 }
 
 /*
- * Functions for general purpose stuff
- */
+* Functions for general purpose stuff
+*/
 GLchar * GameAsset::shader_file_contents(const string &filename, GLint * length)
 {
   ifstream input_file;
   input_file.open(filename.c_str(), ios::in);
 
-  input_file.seekg(0, ios::end);  // go to the end of the file
-  *length = input_file.tellg();  // get length of the file
-  input_file.seekg(0, ios::beg);  // go to beginning of the file
+  input_file.seekg(0, ios::end); // go to the end of the file
+  *length = input_file.tellg(); // get length of the file
+  input_file.seekg(0, ios::beg); // go to beginning of the file
 
   GLchar * buffer = new GLchar[(*length)+1];
   input_file.read(buffer, *length);
-  buffer[(*length)+1]='\0';  // Ensure null terminated
+  buffer[(*length)+1]='\0'; // Ensure null terminated
 
   input_file.close();
   return buffer;
 }
 
 /*
- * Functions for creating OpenGL objects:
- */
+* Functions for creating OpenGL objects:
+*/
 GLuint GameAsset::make_buffer(
     GLenum target,
     const void *buffer_data,
@@ -147,8 +140,8 @@ GLuint GameAsset::make_program(GLuint vertex_shader, GLuint fragment_shader)
 }
 
 /*
- * Load and create all of our resources:
- */
+* Load and create all of our resources:
+*/
 int GameAsset::make_resources(void)
 {
     vertex_buffer = make_buffer(
@@ -159,7 +152,7 @@ int GameAsset::make_resources(void)
     element_buffer = make_buffer(
         GL_ELEMENT_ARRAY_BUFFER,
         g_element_buffer_data,
-        3 *  sizeof(GLushort) * this->num_triangles
+        3 * sizeof(GLushort) * this->num_triangles
     );
 
     vertex_shader = make_shader(
